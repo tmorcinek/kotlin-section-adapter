@@ -1,6 +1,5 @@
 package com.morcinek.kotlin.adapter
 
-import android.content.Context
 import android.support.v7.widget.RecyclerView
 import android.view.View
 import java.util.*
@@ -8,7 +7,7 @@ import java.util.*
 /**
  * Copyright 2017 Tomasz Morcinek. All rights reserved.
  */
-abstract class AbstractRecyclerViewAdapter<T, H : RecyclerView.ViewHolder>(protected var context: Context) : RecyclerView.Adapter<H>() {
+abstract class AbstractRecyclerViewAdapter<T, H : RecyclerView.ViewHolder>() : RecyclerView.Adapter<H>() {
 
     protected val items = ArrayList<T>()
 
@@ -56,7 +55,7 @@ abstract class AbstractRecyclerViewAdapter<T, H : RecyclerView.ViewHolder>(prote
         return items.size
     }
 
-    protected fun initializeOnClickListener(item: T, view: View) {
+    protected fun initializeOnClickListener(view: View, item: T, position: Int) {
         view.setOnClickListener {
             itemClickListener?.onItemClicked(item, it)
         }
