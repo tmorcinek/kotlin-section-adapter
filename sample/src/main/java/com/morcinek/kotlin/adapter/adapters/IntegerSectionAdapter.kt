@@ -16,7 +16,7 @@ class IntegerSectionAdapter : SectionRecyclerViewAdapter.SectionViewAdapter<Int,
             ViewHolder(layoutInflater.inflate(android.R.layout.simple_list_item_1, parent, false))
 
     override fun onBindViewHolder(holder: ViewHolder, item: Int, position: Int) {
-        holder.textView.text = "${javaClass.simpleName} has Rendered number: $item"
+        holder.textView.text = "${javaClass.simpleName} has rendered number: $item"
     }
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {

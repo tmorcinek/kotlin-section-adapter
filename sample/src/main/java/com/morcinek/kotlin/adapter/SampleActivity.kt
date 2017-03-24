@@ -36,7 +36,10 @@ class SampleActivity : AppCompatActivity() {
         adapter.addSectionViewAdapter(CharSectionAdapter())
 
         adapter.setList(mutableListOf<Any>().apply {
-            addAll((1..6).toList())
+            add('1')
+            add(1)
+            add(2)
+            add(120)
             addAll(('a'..'g').toList())
             addAll((11..14).toList())
         })

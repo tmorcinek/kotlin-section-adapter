@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import com.morcinek.kotlin.adapter.R
 import com.morcinek.kotlin.adapter.SectionRecyclerViewAdapter
 
 /**
@@ -16,7 +17,8 @@ class CharSectionAdapter : SectionRecyclerViewAdapter.SectionViewAdapter<Char, C
             ViewHolder(layoutInflater.inflate(android.R.layout.simple_list_item_1, parent, false))
 
     override fun onBindViewHolder(holder: ViewHolder, item: Char, position: Int) {
-        holder.textView.text = "${javaClass.simpleName} has Rendered number: $item"
+        holder.textView.text = "${javaClass.simpleName} has rendered char: $item"
+        holder.textView.setBackgroundResource(R.color.colorAccent)
     }
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
