@@ -15,21 +15,24 @@ class SectionRecyclerViewAdapter : AbstractRecyclerViewAdapter<Any, RecyclerView
         fun onSectionItemClicked(itemView: View, view: View, item: Any, position: Int)
     }
 
-    interface SectionViewAdapter<T, H : RecyclerView.ViewHolder> {
+    interface SectionViewAdapter<T: Any, H : RecyclerView.ViewHolder> {
 
         fun onCreateViewHolder(layoutInflater: LayoutInflater, parent: ViewGroup, viewType: Int): H
 
         fun onBindViewHolder(holder: H, item: T, position: Int)
 
-        fun clickableViews(holder: H): List<View>
+        fun clickableViews(holder: H) = arrayListOf<View>()
     }
 
     private val sectionViewAdapters = mutableMapOf<Int, SectionViewAdapter<Any, RecyclerView.ViewHolder>>()
 
     var onSectionItemClickListener: OnSectionItemClickListener? = null
 
-    fun <T> addSectionViewAdapter(type: Class<T>, sectionViewAdapter: SectionViewAdapter<Any, RecyclerView.ViewHolder>) =
-            sectionViewAdapters.put(getItemViewTypeForClass(type), sectionViewAdapter)
+    fun <T> addSectionViewAdapter(type: Class<T>, sectionViewAdapter: SectionViewAdapter<out Any, out RecyclerView.ViewHolder>) =
+            sectionViewAdapters.put(getItemViewTypeForClass(type), sectionViewAdapter as SectionViewAdapter<Any, RecyclerView.ViewHolder>)
+
+    inline fun <reified T : Any> addSectionViewAdapter(sectionViewAdapter: SectionViewAdapter<T, out RecyclerView.ViewHolder>) =
+            addSectionViewAdapter(T::class.java, sectionViewAdapter)
 
     private fun getItemViewTypeForClass(type: Class<*>) = type.hashCode()
 
@@ -39,7 +42,7 @@ class SectionRecyclerViewAdapter : AbstractRecyclerViewAdapter<Any, RecyclerView
         return getItemViewType(position) == getItemViewTypeForClass(type)
     }
 
-    private fun getSectionViewAdapter(viewType: Int) = sectionViewAdapters.get(viewType)!!
+    private fun getSectionViewAdapter(viewType: Int) = sectionViewAdapters[viewType]!!
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         return getSectionViewAdapter(viewType).onCreateViewHolder(LayoutInflater.from(parent.context), parent, viewType)
