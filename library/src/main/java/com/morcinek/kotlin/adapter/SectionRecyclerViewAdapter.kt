@@ -15,13 +15,13 @@ class SectionRecyclerViewAdapter : AbstractRecyclerViewAdapter<Any, RecyclerView
         fun onSectionItemClicked(itemView: View, view: View, item: Any, position: Int)
     }
 
-    interface SectionViewAdapter<T: Any, H : RecyclerView.ViewHolder> {
+    interface SectionViewAdapter<T : Any, H : RecyclerView.ViewHolder> {
 
         fun onCreateViewHolder(layoutInflater: LayoutInflater, parent: ViewGroup, viewType: Int): H
 
         fun onBindViewHolder(holder: H, item: T, position: Int)
 
-        fun clickableViews(holder: H) = arrayListOf<View>()
+        fun clickableViews(holder: H): List<View> = arrayListOf<View>()
     }
 
     private val sectionViewAdapters = mutableMapOf<Int, SectionViewAdapter<Any, RecyclerView.ViewHolder>>()
