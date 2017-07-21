@@ -11,5 +11,6 @@
 
     <color name="text_white">#FEFEFE</color>
     <color name="text_white_secondary">#B2FFFFFF</color>
+    <color name="value">@color/accent</color>
     <color name="budget">#57B145</color>
 </resources>

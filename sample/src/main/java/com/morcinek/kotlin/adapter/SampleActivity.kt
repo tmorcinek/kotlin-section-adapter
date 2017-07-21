@@ -25,7 +25,7 @@ class SampleActivity : AppCompatActivity() {
 
         setupRecyclerView()
         setupAdapter()
-        setupData()
+        setupBudgetData()
     }
 
     private fun setupRecyclerView() {
@@ -44,11 +44,28 @@ class SampleActivity : AppCompatActivity() {
         }
     }
 
-    private fun setupData() {
+    private fun setupData(data: List<Any>) {
         adapter.setList(listOf(LoadingViewModel()))
-        Handler().postDelayed({ adapter.setList(listOf(EmptyViewModel())) }, 1500)
-
+        Handler().postDelayed({
+            adapter.setList(data)
+            recyclerView.startLayoutAnimation()
+        }, 1500)
     }
+
+    private fun setupEmptyData() {
+        setupData(listOf(LoadingViewModel()))
+    }
+
+    private fun setupBudgetData() {
+        setupData(budgetData())
+    }
+
+    fun budgetData() = listOf(
+            HeaderViewModel("Monthly Budget", "$5217"),
+            ProgressViewModel(R.string.budget_money_title, "Already spent 4783 out of 10000", 48, resources.getColor(R.color.budget)),
+            ProgressViewModel(R.string.budget_time_title, "This is 21 out of 31 days.", 77, resources.getColor(R.color.value)),
+            SpendingViewModel("$521", "$227")
+    )
 
     private fun createLayoutAnimation() = AnimationUtils.loadAnimation(this, android.R.anim.fade_in)
 }
