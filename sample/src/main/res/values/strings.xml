@@ -1,3 +1,13 @@
 <resources>
-    <string name="app_name">kotlin-section-adapter</string>
+    <string name="app_name">Section Adapter Demo</string>
+
+    <string name="budget_empty_title">You don\'t have any budget yet.</string>
+    <string name="budget_empty_subtitle">To add new one use + button.</string>
+    <string name="budget_loading">Loading Budgets…</string>
+
+    <string name="budget_time_title">Time Passed</string>
+    <string name="budget_money_title">Money Spent</string>
+    <string name="budget_header_left">Money Left</string>
+    <string name="budget_spending_recommended">Recommended daily spending</string>
+    <string name="budget_spending_actual">Actual daily spending</string>
 </resources>

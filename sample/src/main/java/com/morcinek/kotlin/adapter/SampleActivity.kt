@@ -1,13 +1,13 @@
 package com.morcinek.kotlin.adapter
 
 import android.os.Bundle
+import android.os.Handler
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.DefaultItemAnimator
 import android.support.v7.widget.LinearLayoutManager
 import android.view.animation.AnimationUtils
 import android.view.animation.LayoutAnimationController
-import com.morcinek.kotlin.adapter.adapters.IntegerSectionAdapter
-import com.morcinek.kotlin.adapter.adapters.CharSectionAdapter
+import com.morcinek.kotlin.adapter.sections.*
 import kotlinx.android.synthetic.main.main.*
 
 
@@ -16,12 +16,16 @@ import kotlinx.android.synthetic.main.main.*
  */
 class SampleActivity : AppCompatActivity() {
 
+    private val adapter: SectionRecyclerViewAdapter
+        get() = recyclerView.adapter as SectionRecyclerViewAdapter
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.main)
 
         setupRecyclerView()
         setupAdapter()
+        setupData()
     }
 
     private fun setupRecyclerView() {
@@ -31,20 +35,19 @@ class SampleActivity : AppCompatActivity() {
     }
 
     private fun setupAdapter() {
-        val adapter = SectionRecyclerViewAdapter()
-        adapter.addSectionViewAdapter(IntegerSectionAdapter())
-        adapter.addSectionViewAdapter(CharSectionAdapter())
+        recyclerView.adapter = SectionRecyclerViewAdapter().apply {
+            addSectionViewAdapter(EmptySectionViewAdapter())
+            addSectionViewAdapter(LoadingSectionViewAdapter())
+            addSectionViewAdapter(HeaderSectionViewAdapter())
+            addSectionViewAdapter(ProgressSectionViewAdapter())
+            addSectionViewAdapter(SpendingSectionViewAdapter())
+        }
+    }
 
-        adapter.setList(mutableListOf<Any>().apply {
-            add('1')
-            add(1)
-            add(2)
-            add(120)
-            addAll(('a'..'g').toList())
-            addAll((11..14).toList())
-        })
+    private fun setupData() {
+        adapter.setList(listOf(LoadingViewModel()))
+        Handler().postDelayed({ adapter.setList(listOf(EmptyViewModel())) }, 1500)
 
-        recyclerView.adapter = adapter
     }
 
     private fun createLayoutAnimation() = AnimationUtils.loadAnimation(this, android.R.anim.fade_in)
