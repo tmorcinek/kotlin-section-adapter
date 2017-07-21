@@ -41,6 +41,7 @@ class SampleActivity : AppCompatActivity() {
             addSectionViewAdapter(HeaderSectionViewAdapter())
             addSectionViewAdapter(ProgressSectionViewAdapter())
             addSectionViewAdapter(SpendingSectionViewAdapter())
+            addSectionViewAdapter(LogoSectionViewAdapter())
         }
     }
 
@@ -64,7 +65,8 @@ class SampleActivity : AppCompatActivity() {
             HeaderViewModel("Monthly Budget", "$5217"),
             ProgressViewModel(R.string.budget_money_title, "Already spent 4783 out of 10000", 48, resources.getColor(R.color.budget)),
             ProgressViewModel(R.string.budget_time_title, "This is 21 out of 31 days.", 77, resources.getColor(R.color.value)),
-            SpendingViewModel("$521", "$227")
+            SpendingViewModel("$521", "$227"),
+            LogoViewModel()
     )
 
     private fun createLayoutAnimation() = AnimationUtils.loadAnimation(this, android.R.anim.fade_in)
