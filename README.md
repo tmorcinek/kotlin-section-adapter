@@ -1,4 +1,4 @@
-# kotlin-section-adapter
+# Kotlin Section Adapter
 
 This library is written in Kotlin.
 Special RecyclerView.Adapter that can render many different kind of items.
