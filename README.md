@@ -83,11 +83,11 @@ Tomasz Morcinek https://github.com/tmorcinek
 
 <a href="https://plus.google.com/+TomaszMorcinek">
   <img alt="Follow me on Google+"
-       src="https://lh6.googleusercontent.com/QRBkX_24uWdIaZ5gu5a1kxG6TROBenLD9C4CIq5Bmb_G8XEDHSIgSx-vvBvkrDCfxf4keFwCuMGs36s=w1440-h758" />
+       src="https://lh5.googleusercontent.com/nC6C8xGdqGcUy6ArTQa7xrE9EYjCHHutuRVpl2oHujNAXhq47aimb6tw26S9J_4Bg8Qa-srl9bJCmIU=w1440-h714" />
 </a>
 <a href="https://play.google.com/store/apps/developer?id=Tomasz+Morcinek">
   <img alt="Checkout my Applications in Google Play"
-       src="https://lh4.googleusercontent.com/D8tOkyID3QWXDhmwuI9DOG2dM68xKhEr2Zo6iE2xmxVQDK5I1AXuFdPZb1mBLoLntLy-i9yMMtKXizk=w1440-h758" />
+       src="https://lh6.googleusercontent.com/3gYLHwpu-ikB3NzFXQA8uBNji-piDrDgHboK_6JqE5Cu8liK24xOq1pYnAMQgs7u5lc1juebOOEjgLw=w1440-h714" />
 </a>
 
 
