@@ -28,12 +28,13 @@ class SampleActivity : AppCompatActivity() {
         setupRecyclerView()
         setupAdapter()
         setupBudgetData()
+        setupFab()
     }
 
     private fun setupRecyclerView() {
         recyclerView.layoutManager = LinearLayoutManager(this)
         recyclerView.itemAnimator = DefaultItemAnimator()
-        recyclerView.layoutAnimation = LayoutAnimationController(createLayoutAnimation())
+        recyclerView.layoutAnimation = LayoutAnimationController(AnimationUtils.loadAnimation(this, R.anim.abc_fade_in))
     }
 
     private fun setupAdapter() {
@@ -48,24 +49,26 @@ class SampleActivity : AppCompatActivity() {
         }
     }
 
+    private fun setupFab() {
+        fab.setOnClickListener { if (adapter.itemCount == 1) setupBudgetData() else setupEmptyData() }
+    }
+
     private fun setupData(data: List<Any>) {
         adapter.setList(listOf(LoadingViewModel()))
+        fab.isEnabled = false
         Handler().postDelayed({
+            fab.isEnabled = true
             adapter.setList(data)
             recyclerView.startLayoutAnimation()
-        }, 1500)
+        }, 1000)
     }
 
     private fun setupEmptyData() {
-        setupData(listOf(LoadingViewModel()))
+        setupData(listOf(EmptyViewModel()))
     }
 
     private fun setupBudgetData() {
-        setupData(budgetData())
-    }
-
-    fun budgetData(): List<Any> {
-        return listOf(
+        setupData(listOf(
                 TextViewModel("This is a presentation of SectionRecyclerViewAdapter.") {
                     it.gravity = Gravity.CENTER
                     it.setTextSize(TypedValue.COMPLEX_UNIT_PX, resources.getDimension(R.dimen.item_value_text_size))
@@ -81,8 +84,6 @@ class SampleActivity : AppCompatActivity() {
                 },
                 SpendingViewModel("$521", "$227"),
                 LogoViewModel()
-        )
+        ))
     }
-
-    private fun createLayoutAnimation() = AnimationUtils.loadAnimation(this, android.R.anim.fade_in)
 }
