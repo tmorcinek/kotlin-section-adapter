@@ -90,11 +90,11 @@ Tomasz Morcinek https://github.com/tmorcinek
 
 <a href="https://plus.google.com/+TomaszMorcinek">
   <img alt="Follow me on Google+"
-       src="https://lh5.googleusercontent.com/nC6C8xGdqGcUy6ArTQa7xrE9EYjCHHutuRVpl2oHujNAXhq47aimb6tw26S9J_4Bg8Qa-srl9bJCmIU=w1440-h714" />
+       src="https://github.com/tmorcinek/kotlin-section-adapter/tree/master/raw/google-plus-logo.png" />
 </a>
 <a href="https://play.google.com/store/apps/developer?id=Tomasz+Morcinek">
   <img alt="Checkout my Applications in Google Play"
-       src="https://lh6.googleusercontent.com/3gYLHwpu-ikB3NzFXQA8uBNji-piDrDgHboK_6JqE5Cu8liK24xOq1pYnAMQgs7u5lc1juebOOEjgLw=w1440-h714" />
+       src="https://github.com/tmorcinek/kotlin-section-adapter/tree/master/raw/google-play-logo.png" />
 </a>
 
 
