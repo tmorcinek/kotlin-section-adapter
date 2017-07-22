@@ -15,7 +15,7 @@ You have to extend `RecyclerView.Adapter` this usually makes the code complicate
 
 #### Google Play
 
-<a href="https://play.google.com/store/apps/details?id=com.morcinek.kotlin.adapter">
+<a href="https://play.google.com/store/apps/details?id=com.morcinek.kotlin.adapter" target="_blank">
   <img width="340px" alt="Follow me on Google+"
        src="http://www.morcinek.co.uk/wp-content/uploads/2014/11/Android-app-on-google-play.svg" />
 </a>
