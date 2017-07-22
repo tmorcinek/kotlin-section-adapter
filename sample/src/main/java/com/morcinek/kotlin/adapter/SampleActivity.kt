@@ -5,6 +5,8 @@ import android.os.Handler
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.DefaultItemAnimator
 import android.support.v7.widget.LinearLayoutManager
+import android.util.TypedValue
+import android.view.Gravity
 import android.view.animation.AnimationUtils
 import android.view.animation.LayoutAnimationController
 import com.morcinek.kotlin.adapter.sections.*
@@ -42,6 +44,7 @@ class SampleActivity : AppCompatActivity() {
             addSectionViewAdapter(ProgressSectionViewAdapter())
             addSectionViewAdapter(SpendingSectionViewAdapter())
             addSectionViewAdapter(LogoSectionViewAdapter())
+            addSectionViewAdapter(TextSectionViewAdapter())
         }
     }
 
@@ -61,13 +64,25 @@ class SampleActivity : AppCompatActivity() {
         setupData(budgetData())
     }
 
-    fun budgetData() = listOf(
-            HeaderViewModel("Monthly Budget", "$5217"),
-            ProgressViewModel(R.string.budget_money_title, "Already spent 4783 out of 10000", 48, resources.getColor(R.color.budget)),
-            ProgressViewModel(R.string.budget_time_title, "This is 21 out of 31 days.", 77, resources.getColor(R.color.value)),
-            SpendingViewModel("$521", "$227"),
-            LogoViewModel()
-    )
+    fun budgetData(): List<Any> {
+        return listOf(
+                TextViewModel("This is a presentation of SectionRecyclerViewAdapter.") {
+                    it.gravity = Gravity.CENTER
+                    it.setTextSize(TypedValue.COMPLEX_UNIT_PX, resources.getDimension(R.dimen.item_value_text_size))
+                    it.setTextColor(resources.getColor(R.color.text_white_secondary))
+                },
+                TextViewModel("Each Item is represented by its 'ViewModel'"),
+                TextViewModel("'ViewModel' is then rendered by specific 'SectionViewAdapter' registered to a specific 'ViewModel' type."),
+                HeaderViewModel("Monthly Budget", "$5217"),
+                ProgressViewModel(R.string.budget_money_title, "Already spent 4783 out of 10000", 48, resources.getColor(R.color.budget)),
+                ProgressViewModel(R.string.budget_time_title, "This is 21 out of 31 days.", 77, resources.getColor(R.color.value)),
+                TextViewModel("Daily spending") {
+                    it.gravity = Gravity.CENTER
+                },
+                SpendingViewModel("$521", "$227"),
+                LogoViewModel()
+        )
+    }
 
     private fun createLayoutAnimation() = AnimationUtils.loadAnimation(this, android.R.anim.fade_in)
 }

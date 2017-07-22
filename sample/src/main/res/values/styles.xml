@@ -37,6 +37,10 @@
         <item name="android:textSize">@dimen/item_title_text_size</item>
         <item name="android:textColor">@color/text_white</item>
     </style>
+    <style name="BudgetItem.Text">
+        <item name="android:textColor">@color/text_white</item>
+        <item name="android:singleLine">false</item>
+    </style>
     <style name="BudgetItem.HeaderValue">
         <item name="android:textSize">@dimen/item_value_text_size</item>
         <item name="android:textColor">@color/budget</item>
