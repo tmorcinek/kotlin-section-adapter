@@ -71,7 +71,7 @@ class HeaderSectionViewAdapter : SectionRecyclerViewAdapter.SectionViewAdapter<H
 ### Gradle
 ```groovy
 dependencies {
-    compile 'com.github.tmorcinek:kotlin-section-adapter:1.1'
+    compile 'com.github.tmorcinek:kotlin-section-adapter:1.2'
 }
 ```
 
